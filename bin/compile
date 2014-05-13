@@ -159,6 +159,8 @@ export LIBRARY_PATH=$WORKING_HOME/vendor/ghc-libs:/usr/lib:$LIBRARY_PATH
 export LD_LIBRARY_PATH=$LIBRARY_PATH
 export PATH=$WORKING_HOME/vendor/ghc-$GHC_VER/bin:$WORKING_HOME/vendor/cabal-install-$CABAL_VER/bin:$WORKING_HOME/vendor/ghc-utils/bin:$WORKING_HOME/.cabal-sandbox/bin:$PATH
 
+echo "Current PATH is $PATH"
+
 ########## GHC #####################################################
 if [ ! -e $CACHE_DIR/ghc-$GHC_VER ]; then
   PREBUILT_GHC_URL=$PREBUILT/heroku-ghc-$GHC_VER.tar.gz
