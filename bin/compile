@@ -20,7 +20,7 @@ CLEAR_CACHE=0
 export_env_dir() {
   local env_dir=${1:-$ENV_DIR}
   local whitelist_regex=${2:-''}
-  local blacklist_regex=${3:-'^(GIT_DIR|CPATH|CPPATH|LD_PRELOAD|LIBRARY_PATH|BUILDPACK_URL)$'}
+  local blacklist_regex=${3:-'^(PATH|GIT_DIR|CPATH|CPPATH|LD_PRELOAD|LIBRARY_PATH|BUILDPACK_URL)$'}
 
   if [ -d "$env_dir" ]; then
     echo "-----> Exporting config vars"
@@ -30,6 +30,7 @@ export_env_dir() {
       export "$e=$(cat $env_dir/$e)"
       :
     done
+    export "PATH=$(cat $env_dir/PATH):$PATH"
   fi
 }
 
