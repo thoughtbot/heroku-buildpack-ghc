@@ -262,18 +262,3 @@ fi
 echo "-----> Making GHC binaries available to Heroku command line"
 mkdir -p $BUILD_DIR/vendor
 mv $WORKING_HOME/vendor/ghc-libs $BUILD_DIR/vendor
-mv $WORKING_HOME/vendor/ghc-utils $BUILD_DIR/vendor
-mv $WORKING_HOME/vendor/ghc-includes $BUILD_DIR/vendor
-mv $WORKING_HOME/vendor/ghc-$GHC_VER $BUILD_DIR/vendor
-mv $WORKING_HOME/vendor/cabal-install-$CABAL_VER $BUILD_DIR/vendor
-
-echo "-----> Making cabal config available to Heroku command line"
-if [ -d $WORKING_HOME/.cabal ]; then
-  mv $WORKING_HOME/.cabal $BUILD_DIR
-fi
-
-echo "-----> Making cabal sandbox available to Heroku command line"
-if [ -d $WORKING_HOME/.cabal-sandbox ]; then
-  cp -R $WORKING_HOME/.cabal-sandbox $BUILD_DIR
-fi
-
